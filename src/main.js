@@ -26,7 +26,10 @@ async function createDocument() {
         console.error("Error creating document:", error);
     }
 }
-
+   const client = new Client()
+      .setEndpoint('https://cloud.appwrite.io/v1')
+      .setProject(process.env.667eeaf9002912d4f3ab)
+      .setKey(process.env.667effa3288876b66351);
 createDocument();
 
 // This is your Appwrite function
