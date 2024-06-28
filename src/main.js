@@ -1,4 +1,26 @@
+
 import { Client } from 'node-appwrite';
+import { Client, Databases } from "appwrite";
+
+const client = new Client()
+    .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
+    .setProject('667eeaf9002912d4f3ab'); // Your project ID
+
+const databases = new Databases(client);
+
+const result = await databases.createDocument(
+    '667efb7e00313876acb2', // databaseId
+    '667efbad0031c4393190', // collectionId
+    ID.unique(), // documentId
+    {
+      "nickName":"yessir3000porn0",
+      "age":"12",
+      "note":[4.4554],
+    }, // data
+    ["read("any")"] // permissions (optional)
+);
+
+console.log(response);
 
 // This is your Appwrite function
 // It's executed each time we get a request
@@ -12,7 +34,6 @@ export default async ({ req, res, log, error }) => {
 
   // You can log messages to the console
   log('Hello, Logs!');
-  context.log("");
   // If something goes wrong, log an error
   error('Hello, Errors!');
 
@@ -31,3 +52,5 @@ export default async ({ req, res, log, error }) => {
     getInspired: 'https://builtwith.appwrite.io',
   });
 };
+
+
