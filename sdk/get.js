@@ -1,8 +1,8 @@
 import { Databases } from "appwrite";
 
-const PROJECT_ID = ""
-const DB_ID = ""
-const COLEECTION_ID_PROFILES = ""
+const PROJECT_ID = "667eeaf9002912d4f3ab"
+const DB_ID = "667efb7e00313876acb2"
+const COLEECTION_ID_PROFILES = "667efbad0031c4393190"
 
 export default async ({req, res, log, error}) => {
 
