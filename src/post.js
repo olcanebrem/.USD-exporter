@@ -17,10 +17,6 @@ async function createDocument() {
             documentId: ID.unique(),
             data: documentData,
 
-
-
-
-
         })
     });
 
