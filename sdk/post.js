@@ -18,9 +18,7 @@ export default async ({ req, res, log, error }) => {
       return res.json(response);
     } catch (err) {
       console.error("Error creating document:", err);
-      return res.status(500).json({ error: "Internal Server Error" });
     }
-  } else {
-    return res.status(405).json({ error: "Method Not Allowed" });
-  }
+  } 
+  
 };
