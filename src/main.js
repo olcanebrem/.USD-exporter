@@ -18,7 +18,7 @@ export default async ({ req, res, log, error }) => {
   error('Hello, Errors!');
   
   if (req.method === 'GET') {
-    console.log(jsonResponse);
+    console.log;
     return res.send('Hello, World!');
   }
   // `res.json()` is a handy helper for sending JSON
