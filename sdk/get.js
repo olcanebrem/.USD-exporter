@@ -1,4 +1,4 @@
-import {Client, Databases } from "appwrite";
+import { Client, Databases } from "appwrite";
 
 const PROJECT_ID = process.env.PROJECT_ID
 const DB_ID = process.env.DB_ID
@@ -6,13 +6,10 @@ const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES
 
 export default async ({req, res, log, error}) => {
 
-        const client = new client()
+        const client = new client();
         
-        client
-                .setEndpoint("https://cloud.appwrite.io/v1")
-                .setProject(PROJECT_ID)
-
-        const db = new Databases(client)
+        client .setEndpoint("https://cloud.appwrite.io/v1").setProject(PROJECT_ID);
+        const db = new Databases(client);
                 
         
 
