@@ -1,8 +1,8 @@
-import { Databases } from "appwrite";
+import {Client, Databases } from "appwrite";
 
 const PROJECT_ID = process.env.PROJECT_ID
 const DB_ID = process.env.DB_ID
-const COLEECTION_ID_PROFILES = process.env.COLEECTION_ID_PROFILES
+const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES 
 
 export default async ({req, res, log, error}) => {
 
@@ -14,14 +14,15 @@ export default async ({req, res, log, error}) => {
 
         const db = new Databases(client)
                 
-        }
+        
 
         if(req.method == "GET"){
             const response = await db.listDocuments(
                 DB_ID,
-                COLEECTION_ID_PROFILES
+                COLLECTION_ID_PROFILES 
             )
             return res.json(response.documents)
         }
-
-    
+        
+        return res.send("sdffds22")
+    }
