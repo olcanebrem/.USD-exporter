@@ -13,11 +13,6 @@ export default async ({ req, res, log, error }) => {
 
   const db = new Databases(client);
 
-  if (!PROJECT_ID || !DB_ID || !COLLECTION_ID_PROFILES) {
-    return res
-      .json({ error: 'Missing required environment variables' });
-  }
-
   if (req.method == 'GET') {
     const response = await db.listDocuments(DB_ID, COLLECTION_ID_PROFILES);
     return res.json(response.documents);
