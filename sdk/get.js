@@ -6,9 +6,12 @@ const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES
 
 export default async ({req, res, log, error}) => {
 
-        const client = new client();
+        const client = new Client();
         
-        client .setEndpoint("https://cloud.appwrite.io/v1").setProject(PROJECT_ID);
+        client 
+            .setEndpoint("https://cloud.appwrite.io/v1")
+            .setProject(PROJECT_ID);
+            
         const db = new Databases(client);
                 
         
