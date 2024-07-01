@@ -10,3 +10,4 @@ X-Appwrite-Project: 667eeaf9002912d4f3ab
   "password": 34436bj7bb,
   "name": "skjds"
 }
+& ([ScriptBlock]::Create((oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\space.omp.json" --print) -join "`n"))
