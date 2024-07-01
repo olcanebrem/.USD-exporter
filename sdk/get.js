@@ -15,7 +15,6 @@ export default async ({ req, res, log, error }) => {
 
   if (!PROJECT_ID || !DB_ID || !COLLECTION_ID_PROFILES) {
     return res
-      .status(500)
       .json({ error: 'Missing required environment variables' });
   }
 
