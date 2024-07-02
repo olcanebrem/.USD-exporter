@@ -13,7 +13,7 @@ export default async ({ req, res }) => {
             const response = await databases.createDocument(
                 '667efb7e00313876acb2', // Database ID
                 '667efbad0031c4393190', // Collection ID
-                ID.unique(), // Document ID (Appwrite will generate a unique ID)
+                documentID = ID.unique(), // Document ID (Appwrite will generate a unique ID)
                 {
                     age: 1,
                 }
