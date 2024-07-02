@@ -17,7 +17,7 @@ export default async ({ req, res }) => {
                 COLLECTION_ID_PROFILES, // Collection ID
                 ID.unique(), // Document ID (Appwrite will generate a unique ID)
                 {
-                    age: 1,
+                    age: 21,
                 }
             );
             console.log(response); // Output the response
