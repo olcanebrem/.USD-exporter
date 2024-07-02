@@ -4,19 +4,18 @@ const PROJECT_ID = process.env.PROJECT_ID;
 const DB_ID = process.env.DB_ID;
 const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES;
 
-export default async (context) => {
-    const { req, res, log, error } = context;
+export default async ({ req, res, log, error }) => {
 
-    async function addTask() {
+    async function createDocument() {
         const client = new Client();
         client
             .setEndpoint('https://cloud.appwrite.io/v1')
             .setProject(PROJECT_ID);
 
-        const db = new Databases(client);
+        const promise = new Databases(client);
 
         try {
-            const response = await db.createDocument(
+            const response = await promise.createDocument(
                 DB_ID, // databaseId
                 COLLECTION_ID_PROFILES, // collectionId
                 ID.unique(), // documentId
@@ -36,4 +35,5 @@ export default async (context) => {
     } else {
         return res.json({ success: false, error: 'Method Not Allowed' });
     }
-};
+    createDocument();
+}
