@@ -26,16 +26,16 @@ export default async ({ req, res, log, error }) => {
                 [] // permissions (optional)
             );
             console.log(response);
-            res.send.json({ success: true, data: response });
+            res.json({ success: true, data: response });
         }catch (err) {
             console.error(err);
-            res.send.json({ success: false, error: err.message });
+            res.json({ success: false, error: err.message });
         }
     }
      // Example: Call addTask based on some condition
      if (req.method === 'POST') {
         await addTask();
     } else {
-        res.send.json({ success: false, error: 'Method Not Allowed' });
+        res.json({ success: false, error: 'Method Not Allowed' });
     }
 }
