@@ -31,7 +31,7 @@ export default async ({ req, res, log, error }) => {
     }
 
     if (req.method === 'POST') {
-        await addTask();
+        await createDocument();
     } else {
         return res.json({ success: false, error: 'Method Not Allowed' });
     }
