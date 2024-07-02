@@ -5,11 +5,9 @@ const DB_ID = process.env.DB_ID
 const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES
 
 
-    async function createDocument(e){
-        e.preventDefault()
+    async function createDocument(){
+
         const client = new Client();
-        
-        client
             .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
             .setProject(PROJECT_ID); // Your project ID
     
@@ -20,7 +18,7 @@ const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES
             DB_ID, // databaseId
             COLLECTION_ID_PROFILES, // collectionId
             ID.unique(), // documentId
-            {"body":0}, // data
+            {"body":"hello world"}, // data
             [] // permissions (optional)
             );
 
