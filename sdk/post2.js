@@ -10,7 +10,7 @@ export default async ({ req, res, log, error }) => {
     async function addTask() {
 
         const client = new Client();
-        
+        log.Client
         client
         .setEndpoint('https://cloud.appwrite.io/v1')
         .setProject(PROJECT_ID);
@@ -38,5 +38,7 @@ export default async ({ req, res, log, error }) => {
     } else {
         res.json({ success: false, error: 'Method Not Allowed' });
     }
-    return res.status(204).send();
+    res.statusCode = 405;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ success: false, error: 'Method Not Allowed' }));
 }
