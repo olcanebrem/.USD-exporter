@@ -12,19 +12,18 @@ export default async ({ req, res, log, error }) => {
             .setEndpoint('https://cloud.appwrite.io/v1')
             .setProject(PROJECT_ID);
 
-        const promise = new Databases(client);
+        const db = new Databases(client);
 
-        
-            const response = await promise.createDocument(
-                DB_ID, // databaseId
-                COLLECTION_ID_PROFILES, // collectionId
-                ID.unique(), // documentId
-                { "title": "hello world" }, // data
-                [] // permissions (optional)
-            );
-            
             if (req.method === 'POST') {
-                await createDocument();
+                const response = await db.createDocument(
+                    DB_ID, // databaseId
+                    COLLECTION_ID_PROFILES, // collectionId
+                    ID.unique(), // documentId
+                    { "title": "hello world" }, // data
+                    [] // permissions (optional)
+                );
+                return res.json(response.documents);
+                
             } else {
                 return res.json({ success: false, error: 'Method Not Allowed' });
             }
