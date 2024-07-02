@@ -24,14 +24,13 @@ export default async function createDocument(req, res) {
   const client = new Client();
 
   client.setEndpoint('https://cloud.appwrite.io/v1').setProject(PROJECT_ID);
-  client.setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID)
 
   const db = new Databases(client);
 
   if (req.method === 'POST') {
     try {
       
-      const read = ['*']; // Tüm kullanıcılar okuyabilir
+      const read = ['any']; // Tüm kullanıcılar okuyabilir
       const write = [`user:${jsonData.$id}`]; // Sadece bu belge sahibi yazabilir
       // Veriyi doğrudan JSON'dan alabiliriz
       const response = await db.createDocument(DB_ID, COLLECTION_ID_PROFILES, 'unique()', jsonData, read, write);
