@@ -18,7 +18,7 @@ export default async ({ req, res, log, error }) => {
             DB_ID, // databaseId
             COLLECTION_ID_PROFILES, // collectionId
             ID.unique(), // documentId
-            {"body":"hello world"}, // data
+            {"title":"hello world"}, // data
             [] // permissions (optional)
             );
 
