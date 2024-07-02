@@ -1,49 +1,32 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import { Client, Databases, ID } from 'node-appwrite';
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
+import { Client, Databases, ID } from 'appwrite';
 const PROJECT_ID = process.env.PROJECT_ID || 'your_project_id';
 const DB_ID = process.env.DB_ID || 'your_db_id';
 const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES || 'your_collection_id';
+// Initialize the Appwrite client
+const client = new Client()
+    .setEndpoint('https://cloud.appwrite.io/v1') // Your Appwrite endpoint
+    .setProject(PROJECT_ID); // Your project ID
 
-export default async ({ req, res, log, error }) => {
-const client = new Client();
+export default async ({ req, res }) => {
+    if (req.method === 'POST') {
+        const databases = new Databases(client);
 
-client
-  .setEndpoint('https://cloud.appwrite.io/v1') // Appwrite API Endpoint
-  .setProject(PROJECT_ID); // Appwrite Project ID
-
-const databases = new Databases(client);
-
-app.use(bodyParser.json());
-
-app.post('/api/documents', async (req, res) => {
-  try {
-    const { data } = req.body;
-
-    const read = ['*']; // Everyone can read
-    const write = ['*']; // Everyone can write
-
-    const response = await databases.createDocument(
-      DB_ID,
-      COLLECTION_ID_PROFILES,
-      ID.unique(), // Use 'ID.unique()' to generate a unique ID for the document
-      data,
-      read,
-      write
-    );
-
-    res.json(response);
-  } catch (err) {
-    console.error('Error creating document:', err);
-    res.status(500).json({ error: 'Error creating document' });
-  }
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-})
-}
+        try {
+            const response = await databases.createDocument(
+                DB_ID, // Database ID
+                COLLECTION_ID_PROFILES, // Collection ID
+                ID.unique(), // Document ID (Appwrite will generate a unique ID)
+                {
+                    age: 21,
+                }
+            );
+            console.log(response); // Output the response
+            return res.send('Document created successfully');
+        } catch (error) {
+            console.error('Error creating document:', error);
+            return res.send('error!');
+        }
+    } else {
+        return res.send('error!');
+    }
+};
