@@ -39,6 +39,5 @@ export default async ({ req, res, log, error }) => {
         res.json({ success: false, error: 'Method Not Allowed' });
     }
     res.statusCode = 405;
-    res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ success: false, error: 'Method Not Allowed' }));
 }
