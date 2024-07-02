@@ -1,4 +1,4 @@
-import { Client, Databases } from 'node-appwrite';
+import { Client, Databases, ID} from 'node-appwrite';
 
 const PROJECT_ID = process.env.PROJECT_ID;
 const DB_ID = process.env.DB_ID;
@@ -10,7 +10,7 @@ const jsonData = {
   "note": [],
   "title": "ooo",
   "numb": null,
-  "$id": "667f221500115624a682",
+  "$id": ID.unique(),
   "$tenant": "159567",
   "$createdAt": "2024-06-28T20:50:29.678+00:00",
   "$updatedAt": "2024-06-28T20:59:54.102+00:00",
