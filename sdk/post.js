@@ -29,8 +29,9 @@ export default async function createDocument(req, res) {
 
   if (req.method === 'POST') {
     try {
-      const { data, read, write } = req.body; // POST isteği ile gönderilen veri
-
+      
+      const read = ['*']; // Tüm kullanıcılar okuyabilir
+      const write = [`user:${jsonData.$id}`]; // Sadece bu belge sahibi yazabilir
       // Veriyi doğrudan JSON'dan alabiliriz
       const response = await db.createDocument(DB_ID, COLLECTION_ID_PROFILES, 'unique()', jsonData, read, write);
       
