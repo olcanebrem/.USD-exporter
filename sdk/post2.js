@@ -38,4 +38,5 @@ export default async ({ req, res, log, error }) => {
     } else {
         res.json({ success: false, error: 'Method Not Allowed' });
     }
+    return res.status(204).send();
 }
