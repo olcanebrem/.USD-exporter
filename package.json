@@ -2,7 +2,7 @@
   "name": "starter-template",
   "version": "1.0.0",
   "description": "",
-  "main": "sdk/post.js",
+  "main": "sdk/pos2t.cjs",
   "type": "commonjs",
   "scripts": {
     "format": "prettier --write ."
