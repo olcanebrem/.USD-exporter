@@ -7,7 +7,7 @@ const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES || 'your_colle
     const createDocument = async () => {
         const client = new sdk.Client()
             .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
-            .setProject(667eeaf9002912d4f3ab); // Your project ID
+            .setProject(PROJECT_ID); // Your project ID
     
         const Databases = new sdk.Databases(client);
     
