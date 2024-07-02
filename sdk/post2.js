@@ -19,12 +19,12 @@ export default async ({ req, res }) => {
                 }
             );
             console.log(response); // Output the response
-            return res.status(200).send('Document created successfully');
+            return res.send('Document created successfully');
         } catch (error) {
             console.error('Error creating document:', error);
-            return res.status(500).send('Error creating document');
+            return res.send('Hello, World!');
         }
     } else {
-        return res.status(405).send('Method Not Allowed');
+        return res.send('Hello, World!');
     }
 };
