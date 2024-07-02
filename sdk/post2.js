@@ -1,4 +1,4 @@
-import { client, Databases, ID } from "appwrite";
+import { Client, Databases, ID } from "appwrite";
 
 const PROJECT_ID = process.env.PROJECT_ID
 const DB_ID = process.env.DB_ID
@@ -7,7 +7,7 @@ const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES
 
     async function addTask(e){
         e.preventDefault()
-
+        const client = new Client();
         
         client
             .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
@@ -16,7 +16,7 @@ const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES
         const db = new Databases(client);
     
         
-        const response = await Databases.createDocument(
+        const response = await db.createDocument(
             DB_ID, // databaseId
             COLLECTION_ID_PROFILES, // collectionId
             ID.unique(), // documentId
