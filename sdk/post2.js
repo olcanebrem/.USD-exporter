@@ -1,29 +1,27 @@
-import { Client, Databases, ID } from "appwrite";
+import { Client, Databases, ID } from 'node-appwrite';
 
-const PROJECT_ID = process.env.PROJECT_ID;
-const DB_ID = process.env.DB_ID;
-const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES;
+// Initialize the Appwrite client
+const client = new Client()
+    .setEndpoint('https://cloud.appwrite.io/v1') // Your Appwrite endpoint
+    .setProject('667eeaf9002912d4f3ab'); // Your project ID
 
-export default async ({ req, res, log, error }) => {
+// Initialize the Databases service
+const databases = new Databases(client);
 
-    async function createDocument() {
-        const client = new Client();
-        client
-            .setEndpoint('https://cloud.appwrite.io/v1')
-            .setProject(PROJECT_ID);
-
-        const db = new Databases(client);
-
-            if (req.method === 'POST') {
-                const response = await db.createDocument(
-                    DB_ID, // databaseId
-                    COLLECTION_ID_PROFILES, // collectionId
-                    ID.unique(), // documentId
-                    { "title": "hello world" }, // data
-                    [] // permissions (optional)
-                );
-                return res.json(response.documents);
+async function createDocument() {
+    try {
+        const response = await databases.createDocument(
+            '667efb7e00313876acb2', // Database ID
+            '667efbad0031c4393190', // Collection ID
+            null, // Document ID (Appwrite will generate a unique ID)
+            {
+                age: 1,
             }
-        }
-        createDocument();
+        );
+        console.log(response); // Output the response
+    } catch (error) {
+        console.error('Error creating document:', error);
+    }
 }
+
+createDocument();
