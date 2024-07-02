@@ -27,21 +27,44 @@ export default async function createDocument(req, res) {
 
   const db = new Databases(client);
 
-  if (req.method === 'POST') {
-    try {
-      
-      const read = ['any']; // Tüm kullanıcılar okuyabilir
-      const write = [`user:${jsonData.$id}`]; // Sadece bu belge sahibi yazabilir
-      // Veriyi doğrudan JSON'dan alabiliriz
-      const response = await db.createDocument(DB_ID, COLLECTION_ID_PROFILES, 'unique()', jsonData, read, write);
-      
-      return res.json(response);
-    } catch (err) {
-      console.error("Error creating document:", err);
-      return res.json({ error: "Error creating document" });
+  const server = http.createServer(async (req, res) => {
+    if (req.method === 'POST' && req.url === '/api/documents') {
+      let body = '';
+  
+      req.on('data', chunk => {
+        body += chunk.toString();
+      });
+  
+      req.on('end', async () => {
+        try {
+          const parsedBody = JSON.parse(body);
+          const { data } = parsedBody;
+  
+          const read = ['*']; // Everyone can read
+          const write = ['*']; // Everyone can write
+  
+          const response = await databases.createDocument(
+            DB_ID,
+            COLLECTION_ID_PROFILES,
+            ID.unique(), // Use 'unique()' to generate a unique ID for the document
+            data,
+            read,
+            write
+          );
+  
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify(response));
+        } catch (err) {
+          console.error('Error creating document:', err);
+          res.writeHead(500, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'Error creating document' }));
+        }
+      });
+    } else {
+      res.writeHead(405, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Method Not Allowed' }));
     }
-  } else {
-    return res.json({ error: "Method Not Allowed" });
-  }
+  });
+    
 }
 
