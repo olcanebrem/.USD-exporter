@@ -36,6 +36,7 @@ export default async ({ req, res, log, error }) => {
         await addTask();
     } else {
         res.json({ success: false, error: 'Method Not Allowed' });
+        return;
     }
     error.Client;
     log.Client;
