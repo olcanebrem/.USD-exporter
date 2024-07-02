@@ -24,6 +24,4 @@ export default async ({ req, res, log, error }) => {
 
         console.log(response);
     }
-    
-// Call the async function
-createDocument();
+
