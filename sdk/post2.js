@@ -5,7 +5,7 @@ const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES || 'your_colle
 // Initialize the Appwrite client
 const client = new Client()
     .setEndpoint('https://cloud.appwrite.io/v1') // Your Appwrite endpoint
-    .setProject('667eeaf9002912d4f3ab'); // Your project ID
+    .setProject(PROJECT_ID); // Your project ID
 
 export default async ({ req, res }) => {
     if (req.method === 'POST') {
