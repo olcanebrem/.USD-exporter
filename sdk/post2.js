@@ -24,6 +24,6 @@ export default async ({ req, res, log, error }) => {
                 );
                 return res.json(response.documents);
             }
-    createDocument();
-    }
+        }
+        createDocument();
 }
