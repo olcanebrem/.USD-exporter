@@ -5,11 +5,11 @@ const DB_ID = process.env.DB_ID
 const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES
 
 
-    async function createDocument(){
+export default async ({ req, res, log, error }) => {
 
         const client = new Client();
-            .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
-            .setProject(PROJECT_ID); // Your project ID
+        
+        client.setEndpoint('https://cloud.appwrite.io/v1').setProject(PROJECT_ID);
     
         const db = new Databases(client);
     
