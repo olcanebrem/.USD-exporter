@@ -8,11 +8,7 @@ const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES
     async function addTask(e){
         e.preventDefault()
 
-        const taskBody = e.target.body.value
-        if (taskBody == ''){
-        alert('Form cannot be empty!')
-        return
-        }
+        
         client
             .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
             .setProject(PROJECT_ID); // Your project ID
