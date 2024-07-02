@@ -11,7 +11,7 @@ const client = new sdk.Client()
 
 const databases = new sdk.Databases(client);
 
-const result = await databases.listDocuments(
+const result = databases.listDocuments(
     DB_ID, // databaseId
     COLLECTION_ID_PROFILES, // collectionId
     false // enabled (optional)
