@@ -1,3 +1,4 @@
+const { ID } = require('appwrite');
 const sdk = require('node-appwrite');
 
 const PROJECT_ID = process.env.PROJECT_ID || 'your_project_id';
@@ -6,18 +7,15 @@ const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES || 'your_colle
 
 const client = new sdk.Client()
     .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
-    .setProject(PROJECT_ID); // Your project ID
+    .setProject(PROJECT_ID) // Your project ID
+    .setSession(''); // The user session to authenticate with
 
 const databases = new sdk.Databases(client);
 
-databases.listDocuments(
+const result = await databases.createDocument(
     DB_ID, // databaseId
     COLLECTION_ID_PROFILES, // collectionId
-    false, // enabled (optional)
-    (result) => {
-        console.log('Documents:', result.documents);
-    },
-    (error) => {
-        console.error('Error listing documents:', error);
-    }
+    ID.unique(), // documentId
+    {}, // data
+    [] // permissions (optional)
 );

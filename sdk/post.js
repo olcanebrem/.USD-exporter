@@ -9,6 +9,7 @@ const PROJECT_ID = process.env.PROJECT_ID || 'your_project_id';
 const DB_ID = process.env.DB_ID || 'your_db_id';
 const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES || 'your_collection_id';
 
+export default async ({ req, res, log, error }) => {
 const client = new Client();
 
 client
@@ -44,6 +45,5 @@ app.post('/api/documents', async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-});
-
-export default app; // App'i dışa aktardık
+})
+}
