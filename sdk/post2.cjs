@@ -27,4 +27,4 @@ const createDocument = async function userFunction() {
 };
 
 // Call the async function
-await createDocument();
+createDocument();
