@@ -8,7 +8,7 @@ const client = new Client()
 // Initialize the Databases service
 const databases = new Databases(client);
 
-async function createDocument() {
+export default async function createDocument() {
     try {
         const response = await databases.createDocument(
             '667efb7e00313876acb2', // Database ID
