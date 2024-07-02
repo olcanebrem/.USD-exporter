@@ -1,4 +1,4 @@
-import { Client, Databases, ID } from 'node-appwrite';
+import { Client, Databases, ID } from 'appwrite';
 
 // Initialize the Appwrite client
 const client = new Client()
@@ -13,7 +13,7 @@ async function createDocument() {
         const response = await databases.createDocument(
             '667efb7e00313876acb2', // Database ID
             '667efbad0031c4393190', // Collection ID
-            null, // Document ID (Appwrite will generate a unique ID)
+            ID.unique(), // Document ID (Appwrite will generate a unique ID)
             {
                 age: 1,
             }
