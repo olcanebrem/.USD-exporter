@@ -5,7 +5,7 @@ const DB_ID = process.env.DB_ID
 const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES
 
 
-    async function addTask(e){
+    async function createDocument(e){
         e.preventDefault()
         const client = new Client();
         
@@ -24,6 +24,7 @@ const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES
             [] // permissions (optional)
             );
 
+        console.log(response);
     }
     
 // Call the async function
