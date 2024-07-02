@@ -23,10 +23,7 @@ export default async ({ req, res, log, error }) => {
                     [] // permissions (optional)
                 );
                 return res.json(response.documents);
-                
-            } else {
-                return res.json({ success: false, error: 'Method Not Allowed' });
             }
-    }
     createDocument();
+    }
 }
