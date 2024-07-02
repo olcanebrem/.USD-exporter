@@ -1,5 +1,7 @@
 import { Client, Databases, ID } from 'appwrite';
-
+const PROJECT_ID = process.env.PROJECT_ID || 'your_project_id';
+const DB_ID = process.env.DB_ID || 'your_db_id';
+const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES || 'your_collection_id';
 // Initialize the Appwrite client
 const client = new Client()
     .setEndpoint('https://cloud.appwrite.io/v1') // Your Appwrite endpoint
@@ -11,9 +13,9 @@ export default async ({ req, res }) => {
 
         try {
             const response = await databases.createDocument(
-                '667efb7e00313876acb2', // Database ID
-                '667efbad0031c4393190', // Collection ID
-                documentID = ID.unique(), // Document ID (Appwrite will generate a unique ID)
+                DB_ID, // Database ID
+                COLLECTION_ID_PROFILES, // Collection ID
+                ID.unique(), // Document ID (Appwrite will generate a unique ID)
                 {
                     age: 1,
                 }
