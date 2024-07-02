@@ -1,5 +1,5 @@
 import { Client, Databases, ID } from 'appwrite';
-
+export default async ({ req, res, log, error }) => {
 // Initialize the Appwrite client
 const client = new Client()
     .setEndpoint('https://cloud.appwrite.io/v1') // Your Appwrite endpoint
@@ -8,7 +8,6 @@ const client = new Client()
 // Initialize the Databases service
 const databases = new Databases(client);
 
-export default async function createDocument() {
     try {
         const response = await databases.createDocument(
             '667efb7e00313876acb2', // Database ID
@@ -23,5 +22,4 @@ export default async function createDocument() {
         console.error('Error creating document:', error);
     }
 }
-
 createDocument();
