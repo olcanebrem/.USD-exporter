@@ -1,7 +1,5 @@
 import { Client, Databases } from 'node-appwrite';
-import express from 'express';
 
-const app = express();
 const PROJECT_ID = process.env.PROJECT_ID;
 const DB_ID = process.env.DB_ID;
 const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES;
