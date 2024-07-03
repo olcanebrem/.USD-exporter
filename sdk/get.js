@@ -16,7 +16,7 @@ export default async ({ req, res, log, error }) => {
         client
             .setEndpoint('https://cloud.appwrite.io/v1')
             .setProject(PROJECT_ID);
-
+            res.setHeader('Access-Control-Allow-Origin', '*');
         const db = new Databases(client);
 
         
