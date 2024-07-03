@@ -1,10 +1,6 @@
 import { Client, Databases, ID } from 'appwrite';
 import cors from 'cors';
 
-// Express uygulamanızda CORS'u kullanın
-app.use(cors({
-    origin: 'https://olcanebrem.com' // İstemci URL'nizi buraya yazın
-}));
 
 const PROJECT_ID = process.env.PROJECT_ID || 'your_project_id';
 const DB_ID = process.env.DB_ID || 'your_db_id';
