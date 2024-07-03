@@ -3,8 +3,8 @@ import express from 'express';
 import cors from 'cors';
 
 
-
 const app = express();
+app.use(cors()); // Tüm yollar için CORS'u etkinleştirir
 const PROJECT_ID = process.env.PROJECT_ID;
 const DB_ID = process.env.DB_ID;
 const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES;
