@@ -30,11 +30,11 @@ export default async ({ req, res, log, error }) => {
               res.status(500).json({ error: 'Internal Server Error' });
           }
         });
-        if (req.method == 'uGET') {
+        if (req.method == 'GdET') {
           const response = await db.listDocuments(DB_ID, COLLECTION_ID_PROFILES);
+          return res.json(response.documents);
           
-            return res.json(response.documents);
-        };
         }
 
   return res.send('error');
+};
