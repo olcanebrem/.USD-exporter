@@ -1,5 +1,11 @@
 import { Client, Databases } from 'node-appwrite';
 import express from 'express';
+import cors from 'cors';
+
+// Express uygulamanızda CORS'u kullanın
+app.use(cors({
+  origin: 'https://olcanebrem.com' // İstemci URL'nizi buraya yazın
+}));
 
 const app = express();
 const PROJECT_ID = process.env.PROJECT_ID;
