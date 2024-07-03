@@ -7,7 +7,6 @@ async function fetchDocuments() {
     headers: {
       'Content-Type': 'application/json',
       'X-Appwrite-Project': '667eeaf9002912d4f3ab', // Your project ID
-      'X-Appwrite-Key': 'your_api_key', // Your API key
     },
   });
 
