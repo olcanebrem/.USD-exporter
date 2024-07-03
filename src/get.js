@@ -1,5 +1,3 @@
-const sdk = require('node-appwrite');
-
 async function fetchDocuments() {
   const url =
     'https://cloud.appwrite.io/v1/databases/667efb7e00313876acb2/collections/667efbad0031c4393190/documents';
