@@ -19,14 +19,8 @@ export default async ({ req, res, log, error }) => {
 
         const db = new Databases(client);
 
-        // Middleware to set CORS headers
-        app.use((req, res, next) => {
-          res.header('Access-Control-Allow-Origin', 'https://olcanebrem.com');
-          res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-          res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-          next();
-        });
         
+
         app.get('/api/documents', async (req, res) => {
           try {
               const response = await db.listDocuments(DB_ID, COLLECTION_ID_PROFILES);
@@ -38,7 +32,14 @@ export default async ({ req, res, log, error }) => {
         });
         if (req.method == 'GET') {
           const response = await db.listDocuments(DB_ID, COLLECTION_ID_PROFILES);
-          return res.json(response.documents);
+          // Middleware to set CORS headers
+          app.use((req, res, next) => {
+            res.header('Access-Control-Allow-Origin', 'https://olcanebrem.com');
+            res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+            res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+            next();
+            return res.json(response.documents);
+        });
         }
 
   return res.send('error');
