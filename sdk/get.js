@@ -16,7 +16,7 @@ export default async ({ req, res, log, error }) => {
         client
             .setEndpoint('https://cloud.appwrite.io/v1')
             .setProject(PROJECT_ID);
-            res.setHeader('Access-Control-Allow-Origin', '*');
+            
         const db = new Databases(client);
 
         
@@ -32,8 +32,8 @@ export default async ({ req, res, log, error }) => {
         });
         if (req.method == 'GET') {
           const response = await db.listDocuments(DB_ID, COLLECTION_ID_PROFILES);
+          res.setHeader('Access-Control-Allow-Origin', '*');
           return res.json(response.documents);
-          
         }
 
   return res.send('error');
