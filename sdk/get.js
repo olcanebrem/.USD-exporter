@@ -1,10 +1,9 @@
 import { Client, Databases } from 'node-appwrite';
 import express from 'express';
 import cors from 'cors';
-
+import dotenv from 'dotenv';
 
 const app = express();
-app.use(cors()); // Tüm yollar için CORS'u etkinleştirir
 const PROJECT_ID = process.env.PROJECT_ID;
 const DB_ID = process.env.DB_ID;
 const COLLECTION_ID_PROFILES = process.env.COLLECTION_ID_PROFILES;
@@ -18,7 +17,9 @@ export default async ({ req, res, log, error }) => {
             .setProject(PROJECT_ID);
             
         const db = new Databases(client);
-
+        // CORS ayarları
+        app.use(cors());
+        app.use(express.json());
         
 
         app.get('/api/documents', async (req, res) => {
