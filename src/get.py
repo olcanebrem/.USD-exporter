@@ -10,3 +10,4 @@ databases = Databases(client)
 result = databases.get(
     database_id = '667efb7e00313876acb2'
 )
+context.log()

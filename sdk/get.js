@@ -15,15 +15,6 @@ export default async ({ req, res, log, error }) => {
         const db = new Databases(client);
 
         
-        app.get('/api/documents', async (req, res) => {
-          try {
-              const response = await db.listDocuments(DB_ID, COLLECTION_ID_PROFILES);
-              res.json(response.documents);
-          } catch (error) {
-              console.error('Error fetching documents:', error);
-              res.status(500).json({ error: 'Internal Server Error' });
-          }
-        });
         if (req.method == 'GET') {
           const response = await db.listDocuments(DB_ID, COLLECTION_ID_PROFILES);
           return res.json(response.documents);
