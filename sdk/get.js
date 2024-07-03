@@ -1,8 +1,5 @@
 import { Client, Databases } from 'node-appwrite';
 import express from 'express';
-import cors from 'cors';
-
-
 
 const app = express();
 const PROJECT_ID = process.env.PROJECT_ID;
@@ -18,13 +15,6 @@ export default async ({ req, res, log, error }) => {
             .setProject(PROJECT_ID);
 
         const db = new Databases(client);
-
-        // CORS ayarları
-app.use(cors({
-  origin: 'https://olcanebrem.com',
-  methods: 'GET, POST, PUT, DELETE, OPTIONS',
-  allowedHeaders: 'Content-Type, Authorization'
-}));
 
         
         app.get('/api/documents', async (req, res) => {
