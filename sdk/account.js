@@ -8,7 +8,7 @@ const client = new Client()
     .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
     .setProject(PROJECT_ID); // Your project ID
 
-    console.log(response);
+    
     export default async ({ req, res }) => {
         if (req.method === 'POST') {
 
