@@ -13,7 +13,7 @@ const account = new Account(client);
 const result = await account.create(
     ID.unique(), // userId
     'email@example.com', // email
-    '1234', // password
+    '123456789', // password
     '<NAME>' // name (optional)
 );
 
