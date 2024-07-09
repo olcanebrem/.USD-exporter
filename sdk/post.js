@@ -15,12 +15,7 @@ export default async ({ req, res }) => {
 
         try {
             const response = await databases.createDocument(
-                DB_ID, // Database ID
-                COLLECTION_ID_PROFILES, // Collection ID
-                ID.unique(), // Document ID (Appwrite will generate a unique ID)
-                {
-                    age: 21,
-                }
+               
             );
             console.log(response); // Output the response
             return res.send('Document created successfully');
