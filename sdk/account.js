@@ -1,4 +1,4 @@
-import { Client, Account } from "appwrite";
+import { Client, Account, ID } from "appwrite";
 
 const PROJECT_ID = process.env.PROJECT_ID || 'your_project_id';
 const DB_ID = process.env.DB_ID || 'your_db_id';
@@ -13,7 +13,7 @@ const account = new Account(client);
 const result = await account.create(
     ID.unique(), // userId
     'email@example.com', // email
-    '', // password
+    '1234', // password
     '<NAME>' // name (optional)
 );
 
