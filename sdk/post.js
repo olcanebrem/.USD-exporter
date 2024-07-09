@@ -1,5 +1,4 @@
 import { Client, Databases, ID } from 'appwrite';
-import cors from 'cors';
 
 
 const PROJECT_ID = process.env.PROJECT_ID || 'your_project_id';
