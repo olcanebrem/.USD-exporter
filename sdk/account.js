@@ -17,9 +17,9 @@ const client = new Client()
         try {
             const result = await account.create(
                 ID.unique(), // userId
-                'eddl@example.com', // email
-                '1234567d89', // password
-                '<NAdd>' // name (optional)
+                'ed666l@example.com', // email
+                '123467d89', // password
+                '<N444dd>' // name (optional)
             );
             console.log(response); // Output the response
             return res.send('Document created successfully');
