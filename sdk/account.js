@@ -8,13 +8,26 @@ const client = new Client()
     .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
     .setProject(PROJECT_ID); // Your project ID
 
-const account = new Account(client);
+    console.log(response);
+    export default async ({ req, res }) => {
+        if (req.method === 'POST') {
 
-const result = await account.create(
-    ID.unique(), // userId
-    'email@example.com', // email
-    '123456789', // password
-    '<NAME>' // name (optional)
-);
+        const account = new Account(client);
 
-console.log(response);
+        try {
+            const result = await account.create(
+                ID.unique(), // userId
+                'email@example.com', // email
+                '123456789', // password
+                '<NAME>' // name (optional)
+            );
+            console.log(response); // Output the response
+            return res.send('Document created successfully');
+        } catch (error) {
+            console.error('Error creating document:', error);
+            return res.send('error!');
+        }
+    } else {
+        return res.send('error!');
+    }
+}
