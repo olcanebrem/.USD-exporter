@@ -11,7 +11,7 @@ const client = new Client()
 const account = new Account(client);
 
 const result = await account.create(
-    '<USER_ID>', // userId
+    ID.unique(), // userId
     'email@example.com', // email
     '', // password
     '<NAME>' // name (optional)
