@@ -1,8 +1,8 @@
 const PROJECT_ID = process.env.PROJECT_ID;
-const userId = 'aUSERaddIDa';
-const email = 'edlcanebrem@gmail.com';
-const password = 'your_password';
-const name = 'John Doe';
+const userId = 'aUSERdfdIDa';
+const email = 'edlcanedfdfbrem@gmail.com';
+const password = 'youfdr_password';
+const name = 'Johfn Doe';
 
 const requestData = {
   userId,
