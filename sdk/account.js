@@ -1,6 +1,6 @@
 import { Client, Account, ID } from "appwrite";
 
-const PROJECT_ID = process.env.PROJECT_ID;
+//const PROJECT_ID = process.env.PROJECT_ID;
 const client = new Client()
     .setEndpoint('https://cloud.appwrite.io/v1') // Appwrite API Endpoint
     .setProject(PROJECT_ID); // Your project ID
@@ -19,12 +19,12 @@ export default async function handler(req, res) {
                 name
             );
             console.log(result); // Output the response
-            return res.send({ message: 'Account created successfully', result });
+            return res.send('Account created successfully');
         } catch (error) {
             console.error('Error creating account:', error);
-            return res.send({ error: 'Failed to create account' });
+            return res.send('Failed to create account');
         }
     } else {
-        return res.send({ error: 'Method Not Allowed' });
+        return res.send('Method Not Allowed');
     }
 }
