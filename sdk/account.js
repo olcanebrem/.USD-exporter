@@ -16,7 +16,7 @@ export default async function handler(req, res) {
                 ID.unique(), // userId
                 email,
                 password,
-                name || '' // Optional: If name is not provided, pass an empty string
+                name
             );
             console.log(result); // Output the response
             return res.status(200).json({ message: 'Account created successfully', result });
