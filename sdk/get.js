@@ -20,5 +20,4 @@ export default async ({ req, res, log, error }) => {
           return res.json(response.documents);
         }
 
-  return res.send('error');
 };
